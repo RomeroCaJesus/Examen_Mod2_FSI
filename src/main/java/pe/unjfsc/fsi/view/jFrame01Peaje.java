@@ -265,7 +265,7 @@ public class jFrame01Peaje extends javax.swing.JFrame {
                         .addGap(52, 52, 52))))
         );
 
-        jButtonCalcular.setText("Calcular con IGV");
+        jButtonCalcular.setText("Calcular");
         jButtonCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCalcularActionPerformed(evt);
