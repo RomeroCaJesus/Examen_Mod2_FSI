@@ -14,6 +14,9 @@ public class CEPeaje {
     double igv;
     double importeFinal;
 
+    public CEPeaje() {
+    }
+
     public CEPeaje(String empresaConcesion, int rucConcesion, String direccionConesion, String ubicacionConcesion, String fechaPeaje, String horaPeaje, String tipoComprobante, String nComprobante, String categoria, double importe) {
         this.empresaConcesion = empresaConcesion;
         this.rucConcesion = rucConcesion;
@@ -32,7 +35,7 @@ public class CEPeaje {
     public CEPeaje(double importe) {
         this.importe = importe;
     }
-
+    
     public String getEmpresaConcesion() {
         return empresaConcesion;
     }
@@ -133,8 +136,4 @@ public class CEPeaje {
     public String toString() {
         return "CEPeaje{" + "fechaPeaje=" + fechaPeaje + ", horaPeaje=" + horaPeaje + ", nComprobante=" + nComprobante + ", importe=" + importe + ", igv=" + igv + ", importeFinal=" + importeFinal + '}';
     }
-
-    
-    
-    
 }

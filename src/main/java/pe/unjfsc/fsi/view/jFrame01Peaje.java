@@ -2,12 +2,17 @@
 package pe.unjfsc.fsi.view;
 
 import javax.swing.DefaultListModel;
+import pe.unjfsc.fsi.entity.CEPeaje;
+import pe.unjfsc.fsi.logical.CLCalcular;
 
 public class jFrame01Peaje extends javax.swing.JFrame {
     
+    CLCalcular oCLCalcular = new CLCalcular();    
+    CEPeaje oCEPeaje = new CEPeaje();
     public double dAcumulaTotal;
     public DefaultListModel Ventas;
     public double IGV;
+    public double ImporteF;
     
     public jFrame01Peaje() {
         initComponents();
@@ -17,7 +22,7 @@ public class jFrame01Peaje extends javax.swing.JFrame {
         jListVentas.setVisible(true);
         
         this.jLabelTitulo.setText("Peaje");
-        this.jLabelFechaHora.setText("15/10/2022 12:14am");
+        this.jLabelFechaHora.setText("29/10/2022 11:14am");
         
     }
 
@@ -328,8 +333,12 @@ public class jFrame01Peaje extends javax.swing.JFrame {
 
     private void jButtonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularActionPerformed
 
+        oCEPeaje.setImporte(Double.parseDouble(this.jTextFieldImporte.getText()));
+        oCLCalcular.calcularImporte(oCEPeaje);
+        IGV = oCEPeaje.getIgv();
+        ImporteF = oCEPeaje.getImporteFinal();
         this.jTextFieldIGV.setText(String.valueOf(IGV));
-        this.jTextFieldImporteFinal.setText(String.valueOf(dAcumulaTotal));
+        this.jTextFieldImporteFinal.setText(String.valueOf(ImporteF));
         
     }//GEN-LAST:event_jButtonCalcularActionPerformed
 
@@ -347,10 +356,6 @@ public class jFrame01Peaje extends javax.swing.JFrame {
         "; \n" ;
 
         Ventas.addElement(Mostrar);
-        
-        IGV = 0.18 * Double.parseDouble(this.jTextFieldImporte.getText());
-        
-        dAcumulaTotal = IGV + Double.parseDouble(this.jTextFieldImporte.getText()) ;
     }//GEN-LAST:event_jButtonMostrarActionPerformed
 
     public static void main(String args[]) {
